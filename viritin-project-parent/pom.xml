@@ -12,7 +12,7 @@
     <name>viritin-project-parent</name>
     <description>A parent pom for a slim Vaadin project using Viritin</description>
     <packaging>pom</packaging>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -63,4 +63,8 @@
         
     </dependencies>
     
+
+  <scm>
+    <tag>viritin-project-parent-0.0.1</tag>
+  </scm>
 </project>
