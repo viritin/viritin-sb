@@ -15,6 +15,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <vaadin.version>24.4.4</vaadin.version>
+        <flow.version>24.4.2</flow.version>
     </properties>
  
     <dependencies>
@@ -107,8 +108,8 @@
 
                 <plugin>
                     <groupId>com.vaadin</groupId>
-                    <artifactId>vaadin-maven-plugin</artifactId>
-                    <version>${vaadin.version}</version>
+                    <artifactId>flow-maven-plugin</artifactId>
+                    <version>${flow.version}</version>
                     <!-- Configure front-end build "production bundle" when a deployment artifact is packaged. No special profiles neede. -->
                     <executions>
                         <execution>

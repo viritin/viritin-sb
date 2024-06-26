@@ -23,6 +23,7 @@ Known limitations at this point:
  * Hilla is excluded, otherwise production mode fails (I'm probably excluding something that is actually needed in production )
  * Good looking setup requires app to use parent ATM, try to check if e.g.  "Maven tiles" could help here.
  * Dev mode exclusion list fed to spring-boot plugin is hard coded -> might exclude something you actually need. Tried to workaround this by fixing a related bug in Spring Boot (plugin), but now I can't seem to be able to dynamically feed the list for it as a property 😬 I bet it worked before...
+ * Using flow-maven-plugin (to override a performance issue & nasty warning) -> default bundles are not used. Now how to create custom ones??
 
 Random notes:
 
