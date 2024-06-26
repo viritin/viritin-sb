@@ -5,14 +5,14 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>3.3.1</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath /> <!-- lookup parent from repository -->
     </parent>
     <groupId>in.virit.sb</groupId>
     <artifactId>project-parent</artifactId>
     <name>project-parent</name>
     <description>A parent project (or starter in SB lingo) for Vaadin Flow + Spring Boot apps</description>
     <packaging>pom</packaging>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <vaadin.version>24.4.4</vaadin.version>
@@ -32,7 +32,7 @@
         <url>https://github.com/viritin/flow-viritin</url>
         <connection>scm:git:git://github.com/viritin/viritin-sb.git</connection>
         <developerConnection>scm:git:ssh://git@github.com:/viritin/viritin-sb.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>project-parent-0.0.1</tag>
     </scm>
 
     <issueManagement>
