@@ -69,7 +69,7 @@
         <dependency>
             <groupId>in.virit.sb</groupId>
             <artifactId>sb-configs</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>0.0.1</version>
         </dependency>
         
     </dependencies>
