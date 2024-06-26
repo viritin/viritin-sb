@@ -5,13 +5,13 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>3.3.1</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath /> <!-- lookup parent from repository -->
     </parent>
     <groupId>in.virit.sb</groupId>
     <artifactId>project-parent</artifactId>
     <name>project-parent</name>
     <packaging>pom</packaging>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <vaadin.version>24.4.4</vaadin.version>
@@ -40,7 +40,7 @@
         <dependency>
             <groupId>in.virit.sb</groupId>
             <artifactId>sb-configs</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>0.0.1</version>
         </dependency>
         
     </dependencies>
@@ -126,4 +126,8 @@
         </plugins>
     </build>
     
+
+  <scm>
+    <tag>viritin-sb-0.0.1</tag>
+  </scm>
 </project>
