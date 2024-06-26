@@ -51,5 +51,5 @@ Or just go to the example directory and play with that project.
 
  * sb-configs : Contains a bit of Spring Boot autoconfiguration to enforce dev mode is on whenever vaadin-dev module is on the classpath. This can be used separately as well, if you for example can't use the provided parent pom's
  * project-parent : A pom to inherit from, if you want a clean Vaadin project without a ton of configuration.
- * viritin-project-parent : You guessed it, this parent pom extends the previous one, but gives you a free in.virit:viritin dependency for the same price! Also (currently) ditches the Copilot as it quite radically slows down the startup off apps in dev mode. Probably will also revert to Vaadin router in the next version (as I don't want to increase my jar/frontend bundle, but still want to eat my own dogfood with couple of applications)
+ * viritin-project-parent : You guessed it, this parent pom extends the previous one, but gives you a free in.virit:viritin dependency for the same price! (currently) ditches the Copilot as it quite radically slows down the startup off apps in dev mode. flow-react and React router usage are dust off to make the front-end bundle as smaller (~ same as Vaadin 24.3).
  * example : A simple app example for testing, uses project-parent

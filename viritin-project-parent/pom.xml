@@ -44,6 +44,21 @@
             <distribution>repo</distribution>
         </license>
     </licenses>
+    
+    <build>
+        <plugins>
+            <!-- Configure front-end build to get rid of React & React Router for smaller bundle size -->
+            <plugin>
+                <groupId>com.vaadin</groupId>
+                <artifactId>flow-maven-plugin</artifactId>
+                <version>${flow.version}</version>
+                <configuration>
+                    <reactEnable>false</reactEnable>
+                    <forceProductionBuild>true</forceProductionBuild>
+                </configuration>
+            </plugin>            
+        </plugins>
+    </build>
 
 
     <dependencies>
@@ -65,6 +80,10 @@
                 <exclusion>
                     <groupId>com.vaadin</groupId>
                     <artifactId>copilot</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.vaadin</groupId>
+                    <artifactId>flow-react</artifactId>
                 </exclusion>
                 <!-- Viritin upload is superior, just remove the defaul that you shouldn't touch. -->
                 <exclusion>
