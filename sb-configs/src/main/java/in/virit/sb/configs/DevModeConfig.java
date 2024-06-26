@@ -14,8 +14,8 @@ import java.util.logging.Logger;
 import org.springframework.util.FileSystemUtils;
 
 /**
- * If Vaadin dev mode is there (checked from one class), make sure a production bundle is disabled. TODO add an explicit
- * flag to bypass for come test scenarios.
+ * If Vaadin dev mode is on classpath (checked from one class), make sure a production bundle is disabled. 
+ * TODO add an explicit flag to bypass for come test scenarios.
  */
 @Configuration
 @ConditionalOnClass(ServerInfo.class)
