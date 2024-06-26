@@ -1,0 +1,6 @@
+example/node_modules
+example/target
+project-parent/src/main/frontend
+project-parent/target
+example/src/main/frontend
+sb-configs/target
