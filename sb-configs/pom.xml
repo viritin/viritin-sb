@@ -18,14 +18,20 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
+            <version>3.3.1</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
+            <version>6.1.10</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-core</artifactId>
+            <version>24.4.4</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 </project>

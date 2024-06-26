@@ -15,19 +15,19 @@ public class MainView extends VerticalLayout {
             // strict check for dev mode for testing, if dev mode classes are even present,
             // report as such!
             Class.forName("com.vaadin.base.devserver.ServerInfo");
-            if(!VaadinService.getCurrent().getDeploymentConfiguration().isProductionMode()) {
+            if (!VaadinService.getCurrent().getDeploymentConfiguration().isProductionMode()) {
                 add("Vaadin is in DEVMODE!");
             } else {
                 add("Production mode, but dev mode classes are there.");
             }
         } catch (ClassNotFoundException e) {
-            if(VaadinService.getCurrent().getDeploymentConfiguration().isProductionMode()) {
+            if (VaadinService.getCurrent().getDeploymentConfiguration().isProductionMode()) {
                 add("PROD 😎");
             } else {
                 add("No dev mode classes, but still in production mode!?");
             }
         }
-        
+
     }
 
 }

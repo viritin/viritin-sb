@@ -10,6 +10,44 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+    <organization>
+        <name>Viritin</name>
+    </organization>
+    <url>https://github.com/viritin/flow-viritin</url>
+    <developers>
+        <developer>
+            <name>Matti Tahvonen</name>
+        </developer>
+    </developers>
+    <scm>
+        <url>https://github.com/viritin/flow-viritin</url>
+        <connection>scm:git:git://github.com/viritin/viritin-sb.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com:/viritin/viritin-sb.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+
+    <issueManagement>
+        <system>GitHub</system>
+        <url>https://github.com/viritin/viritin-sb/issues</url>
+    </issueManagement>
+    <licenses>
+        <license>
+            <name>Apache 2</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
+
     <modules>
         <module>sb-configs</module>
         <module>project-parent</module>
@@ -17,22 +55,13 @@
         <module>example</module>
     </modules>
     
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
-                <version>3.3.1</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>com.vaadin</groupId>
-                <artifactId>vaadin-bom</artifactId>
-                <version>24.4.4</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>net.revelc.code.formatter</groupId>
+                <artifactId>formatter-maven-plugin</artifactId>
+                <version>2.12.2</version>
+            </plugin>
+        </plugins>
+    </build>
 </project>

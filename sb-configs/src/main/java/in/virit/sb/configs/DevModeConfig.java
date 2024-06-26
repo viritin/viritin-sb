@@ -14,9 +14,8 @@ import java.util.logging.Logger;
 import org.springframework.util.FileSystemUtils;
 
 /**
- * If Vaadin dev mode is there (checked from one class), make sure a production
- * bundle is disabled. TODO add an explicit flag to bypass for come test
- * scenarios.
+ * If Vaadin dev mode is there (checked from one class), make sure a production bundle is disabled. TODO add an explicit
+ * flag to bypass for come test scenarios.
  */
 @Configuration
 @ConditionalOnClass(ServerInfo.class)
@@ -32,7 +31,8 @@ public class DevModeConfig implements BeanPostProcessor {
                     // Testing, leave to whatever Vaadin mode...
                 } catch (ClassNotFoundException e) {
                     FileSystemUtils.deleteRecursively(Path.of("target/classes/META-INF/VAADIN"));
-                    Logger.getLogger(DevModeConfig.class.getName()).log(Level.INFO, "Deleted packaged production bundle as going devmode.");
+                    Logger.getLogger(DevModeConfig.class.getName()).log(Level.INFO,
+                            "Deleted packaged production bundle as going devmode.");
                 }
             }
         } catch (IOException ex) {
