@@ -14,14 +14,14 @@
     <organization>
         <name>Viritin</name>
     </organization>
-    <url>https://github.com/viritin/flow-viritin</url>
+    <url>https://github.com/viritin/viritin-sb</url>
     <developers>
         <developer>
             <name>Matti Tahvonen</name>
         </developer>
     </developers>
     <scm>
-        <url>https://github.com/viritin/flow-viritin</url>
+        <url>https://github.com/viritin/viritin-sb</url>
         <connection>scm:git:git://github.com/viritin/viritin-sb.git</connection>
         <developerConnection>scm:git:ssh://git@github.com:/viritin/viritin-sb.git</developerConnection>
         <tag>HEAD</tag>

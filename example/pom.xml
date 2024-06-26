@@ -4,20 +4,12 @@
     <parent>
         <groupId>in.virit.sb</groupId>
         <artifactId>project-parent</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
-        <!-- Needed in real projects as most often not in the same directory as the parent  -->
-        <!-- 
+        <version>0.0.1</version>
         <relativePath/> 
-        -->
-        <relativePath>../project-parent</relativePath>
     </parent>
     <artifactId>example</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <properties>
-        <java.version>17</java.version>
-        <!-- Don't deploy this test artifact to the central, not needed for actual projects -->
-        <maven.deploy.skip>true</maven.deploy.skip>
-    </properties>
     <dependencies>
         <!-- Essential Spring & Vaadin deps coming in via parent -->
                 
@@ -39,7 +31,7 @@
     
     <build>
         <plugins>
-        <!-- spring-boot-maven-plugin and vaadin-maven-plugin and their configs inherited from the parent -->
+        <!-- Nothing needed here, spring-boot-maven-plugin and vaadin-maven-plugin and their configs inherited from the parent -->
         </plugins>
     </build>
     

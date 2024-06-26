@@ -32,20 +32,24 @@ Random notes:
 
 ## How to try:
 
-Build:
-
-    mvn install
-
 Create a project with parent:
 
-    in.virit.sb:project-parent:0.0.1-SNAPSHOT
+    in.virit.sb:project-parent:0.0.1
 
 or...
 
-    in.virit.sb:viritin-project-parent:0.0.1-SNAPSHOT
+    in.virit.sb:viritin-project-parent:0.0.1
 
 ... if you want to get a free viritin for the same deal.
 
 Add Spring Boot App class and a Vaadin view, start in a way you wish. Deploy the build jar as you'd expect.
 
 Or just go to the example directory and play with that project.
+
+## Modules in this repo:
+
+
+ * sb-configs : Contains a bit of Spring Boot autoconfiguration to enforce dev mode is on whenever vaadin-dev module is on the classpath. This can be used separately as well, if you for example can't use the provided parent pom's
+ * project-parent : A pom to inherit from, if you want a clean Vaadin project without a ton of configuration.
+ * viritin-project-parent : You guessed it, this parent pom extends the previous one, but gives you a free in.virit:viritin dependency for the same price! Also (currently) ditches the Copilot as it quite radically slows down the startup off apps in dev mode. Probably will also revert to Vaadin router in the next version (as I don't want to increase my jar/frontend bundle, but still want to eat my own dogfood with couple of applications)
+ * example : A simple app example for testing, uses project-parent
