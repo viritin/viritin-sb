@@ -4,3 +4,5 @@ project-parent/src/main/frontend
 project-parent/target
 example/src/main/frontend
 sb-configs/target
+viritin-project-parent/target/
+viritin-project-parent/src/main/frontend
