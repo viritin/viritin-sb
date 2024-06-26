@@ -4,9 +4,9 @@
     <parent>
         <groupId>in.virit.sb</groupId>
         <artifactId>viritin-sb</artifactId>
-        <version>0.0.1</version>
+        <version>0.0.2-SNAPSHOT</version>
     </parent>
-    <version>0.0.1</version>
+    <version>0.0.2-SNAPSHOT</version>
     <artifactId>sb-configs</artifactId>
     <packaging>jar</packaging>
     <description>Provides autoconfiguration for smoother DX</description>
