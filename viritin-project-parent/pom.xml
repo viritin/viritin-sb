@@ -4,7 +4,7 @@
     <parent>
         <groupId>in.virit.sb</groupId>
         <artifactId>project-parent</artifactId>
-        <version>0.0.2-SNAPSHOT</version>
+        <version>0.0.1-SNAPSHOT</version>
         <relativePath>../project-parent</relativePath>
     </parent>
     <groupId>in.virit.sb</groupId>
@@ -12,7 +12,7 @@
     <name>viritin-project-parent</name>
     <description>A parent pom for a slim Vaadin project using Viritin</description>
     <packaging>pom</packaging>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT</version>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <vaadin.version>24.4.4</vaadin.version>
