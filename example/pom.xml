@@ -10,6 +10,25 @@
     <artifactId>example</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
+    
+    <!-- 
+        This is optional, but it can be a good idea to dictate Vaadin version(s) via bom in the project:
+
+         * You can upgrade Vaadin version, independently of the in.virit.sb:project-parent
+         * Without bom, some Vaadin add-ons defining version directly (in wrong way some might claim) might have "shorter path" and override them
+    -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.vaadin</groupId>
+                <artifactId>vaadin-bom</artifactId>
+                <version>24.4.4</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    
     <dependencies>
         <!-- Essential Spring & Vaadin deps coming in via parent -->
                 
