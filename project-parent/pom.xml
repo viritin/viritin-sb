@@ -12,7 +12,7 @@
     <name>project-parent</name>
     <description>A parent project (or starter in SB lingo) for Vaadin Flow + Spring Boot apps</description>
     <packaging>pom</packaging>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.0.2</version>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <vaadin.version>24.4.4</vaadin.version>
@@ -32,7 +32,7 @@
         <url>https://github.com/viritin/viritin-sb</url>
         <connection>scm:git:git://github.com/viritin/viritin-sb.git</connection>
         <developerConnection>scm:git:ssh://git@github.com:/viritin/viritin-sb.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>project-parent-0.0.2</tag>
     </scm>
 
     <issueManagement>
