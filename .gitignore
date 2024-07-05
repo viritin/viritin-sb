@@ -2,7 +2,7 @@ example/node_modules
 example/target
 project-parent/src/main/frontend
 project-parent/target
-example/src/main/frontend
+example/src/main/frontend/generated
 sb-configs/target
 viritin-project-parent/target/
 viritin-project-parent/src/main/frontend
