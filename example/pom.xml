@@ -3,9 +3,10 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>in.virit.sb</groupId>
+        <!-- Use viritin-project-parent for snappy Flow-only project -->
         <artifactId>project-parent</artifactId>
         <version>0.0.2-SNAPSHOT</version>
-        <relativePath/> 
+        <relativePath/>
     </parent>
     <artifactId>example</artifactId>
     <version>0.0.1-SNAPSHOT</version>
