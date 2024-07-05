@@ -6,9 +6,9 @@ import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.VaadinService;
 
 @Route
-public class MainView extends VerticalLayout {
+public class FlowTestView extends VerticalLayout {
 
-    public MainView() {
+    public FlowTestView() {
         add(new H1("Hello!"));
         // Make some runtime checks to see if we are in dev or prod
         try {

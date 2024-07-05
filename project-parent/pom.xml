@@ -52,17 +52,6 @@
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-spring-boot-starter</artifactId>
             <version>${vaadin.version}</version>
-            <exclusions>
-                <!-- Getting an exception while starting in prod if not excluding this, something too much removed from hilla dev deps, something that is not really just a dev dependency ??-->                        
-                <exclusion>
-                    <groupId>com.vaadin</groupId>
-                    <artifactId>hilla</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>com.vaadin</groupId>
-                    <artifactId>hilla-dev</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
 
         <!-- A tooling from here kicks in to enforece dev mod if present. In an ideal situation, this logic would be in vaadin development mode. -->
@@ -126,10 +115,12 @@
                                     <groupId>com.vaadin</groupId>
                                     <artifactId>open</artifactId>
                                 </exclude>
+                                <!--
                                 <exclude>
                                     <groupId>com.github.javaparser</groupId>
                                     <artifactId>javaparser-core</artifactId>
                                 </exclude>
+                                                -->
                                 <exclude>
                                     <groupId>io.methvin</groupId>
                                     <artifactId>directory-watcher</artifactId>
