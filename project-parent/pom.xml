@@ -15,7 +15,7 @@
     <version>0.0.3-SNAPSHOT</version>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <vaadin.version>24.4.1</vaadin.version>
+        <vaadin.version>24.4.4</vaadin.version>
         <flow.version>24.4.2</flow.version>
     </properties>
     
