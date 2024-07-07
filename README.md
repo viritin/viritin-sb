@@ -2,14 +2,7 @@
 
 This project hacks together better project defaults and developer experience for Java developers than what we currently provide out of the box with our official Vaadin starters. Aim is to make it easier and faster to use for a developer who don't yet know the quirks of Vaadin.
 
-This is now a second iteration/version. The difference to the first version is that Vaadin dev mode deps are now declared to test scope only. Thus, no exclusions in the spring-boot:repackage is needed -> the PoC is much cleaner, simpler and more stable (I could even consider people trying it out in actual projects the need to maintain). So essentially implemented in the same manner as Testcontainers support in Spring Boot.
-
-The downside is that old farts might need to learn bit new things. There is now two Spring Boot main methods:
-
- * Development mode server is started from a SB app on the test side, or with `mvn spring-boot:test-run`.
- * The actual SB application will always try to be in production mode. Running it will fail if no priming build is done ( `mvn package`).
-
-Design goals of the project:
+## Design goals of the project:
 
  * A Spring Boot app started from IDE or via `mvn spring-boot:test-run` should automatically end up in development mode.
  * `mvn install` creates a deployment ready production artifact. Reasoning:
@@ -19,24 +12,11 @@ Design goals of the project:
  * Make the pom.xml look like Vaadin is easy to take into use. Current custom profiles, plugin configurations and exclusions makes Vaadin look quite fragile.
  * Collect input and feedback for a proper implementation directly in the Vaadin core. Related Flow issue: https://github.com/vaadin/flow/issues/17737
 
-Tested and expected functionality:
+## Tested and expected functionality:
 
-* Project checked into IDE as usual, starting development server both with main method (the true SB method) or with maven plugin (mvn spring-boot:run) always starts Vaadin app in dev mode.
+* Project checked into IDE as usual, starting development server both with main method (the true SB method) or with maven plugin (mvn spring-boot:test-run) always starts Vaadin app in dev mode.
 * mvn install; java -jar target/*jar builds and properly runs production mode artifact. The first point still works after this step.
-* Dropping in an add-on with client side extensions works as expected. 
-
-Known limitations at this point:
-
- * You can't make your Spring Boot application class(es) directly extend `AppShellConfigurator` due to assertions made at app start. To make those configs work for both dev & production, introduce a separate class for those configs, as in Example class. Probably this is a better habit anyway to keep Vaadin specific stuff separately. Not a biggie, but you'll face this if migrating existing projects...
- * ~~Hilla is excluded, otherwise production mode fails (I'm probably excluding something that is actually needed in production )~~
- * Good looking setup requires app to use parent ATM, try to check if e.g.  "Maven tiles" could help here.
- * ~~Dev mode exclusion list fed to spring-boot plugin is hard coded -> might exclude something you actually need. Tried to workaround this by fixing a related bug in Spring Boot (plugin), but now I can't seem to be able to dynamically feed the list for it as a property 😬 I bet it worked before...~~ SB repackge exclusions not used at all in this branch...
- * Using flow-maven-plugin (to override a performance issue & nasty warning).
-
-Random notes:
-
- * ~~ Spring Boot has a bug/design flaw IMO: optional deps are getting into the artifact jar file (only devtools get excluded by default). Thus can't just declare vaadin-dev as optional -> hacks/profiles needed. ~~ Not affected by this branch using different approach.
- * Gradle all would be simpler 🤪
+* Dropping in an add-on with client side extensions works as expected.
 
 ## How to try:
 
@@ -54,6 +34,29 @@ Add Spring Boot App class and a Vaadin view.
 Declare an additional Spring Boot application to the test side for development mode runs and start via main method or with `mvn spring-boot:test-run`. Deploy the built jar file as you'd expect, no need for Vaadin specific tricks.
 
 Or just go to the `example` directory in this folder and play with that project.
+
+## Known limitations at this point:
+
+ * You can't make your Spring Boot application class(es) directly extend `AppShellConfigurator` due to assertions made at app start. To make those configs work for both dev & production, introduce a separate class for those configs, as in Example class. Probably this is a better habit anyway to keep Vaadin specific stuff separately. Not a biggie, but you'll face this if migrating existing projects...
+ * ~~Hilla is excluded, otherwise production mode fails (I'm probably excluding something that is actually needed in production )~~
+ * Good looking setup requires app to use parent ATM, try to check if e.g.  "Maven tiles" could help here.
+ * ~~Dev mode exclusion list fed to spring-boot plugin is hard coded -> might exclude something you actually need. Tried to workaround this by fixing a related bug in Spring Boot (plugin), but now I can't seem to be able to dynamically feed the list for it as a property 😬 I bet it worked before...~~ SB repackge exclusions not used at all in this branch...
+ * Using flow-maven-plugin (to override a performance issue & nasty warning).
+
+## Implementation details:
+
+ This is now a second iteration/version. The difference to the first version is that Vaadin dev mode deps are now declared to test scope only. Thus, no exclusions in the spring-boot:repackage is needed -> the PoC is much cleaner, simpler and more stable (I could even consider people trying it out in actual projects the need to maintain). So essentially implemented in the same manner as Testcontainers support in Spring Boot.
+
+The downside is that old farts might need to learn bit new things. There is now two Spring Boot main methods:
+
+ * Development mode server is started from a SB app on the test side, or with `mvn spring-boot:test-run`.
+ * The actual SB application will always try to be in production mode. Running it will fail if no priming build is done ( `mvn package`).
+
+
+## Random notes:
+
+ * ~~ Spring Boot has a bug/design flaw IMO: optional deps are getting into the artifact jar file (only devtools get excluded by default). Thus can't just declare vaadin-dev as optional -> hacks/profiles needed. ~~ Not affected by this branch using different approach.
+ * Gradle all would be simpler 🤪
 
 ## Modules in this repo:
 
