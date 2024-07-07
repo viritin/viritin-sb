@@ -27,9 +27,10 @@ Tested and expected functionality:
 
 Known limitations at this point:
 
+ * You can't make your Spring Boot application class(es) directly extend `AppShellConfigurator` due to assertions made at app start. To make those configs work for both dev & production, introduce a separate class for those configs, as in Example class. Probably this is a better habit anyway to keep Vaadin specific stuff separately. Not a biggie, but you'll face this if migrating existing projects...
  * ~~Hilla is excluded, otherwise production mode fails (I'm probably excluding something that is actually needed in production )~~
  * Good looking setup requires app to use parent ATM, try to check if e.g.  "Maven tiles" could help here.
- * Dev mode exclusion list fed to spring-boot plugin is hard coded -> might exclude something you actually need. Tried to workaround this by fixing a related bug in Spring Boot (plugin), but now I can't seem to be able to dynamically feed the list for it as a property 😬 I bet it worked before...
+ * ~~Dev mode exclusion list fed to spring-boot plugin is hard coded -> might exclude something you actually need. Tried to workaround this by fixing a related bug in Spring Boot (plugin), but now I can't seem to be able to dynamically feed the list for it as a property 😬 I bet it worked before...~~ SB repackge exclusions not used at all in this branch...
  * Using flow-maven-plugin (to override a performance issue & nasty warning).
 
 Random notes:
@@ -41,18 +42,18 @@ Random notes:
 
 Create a project with parent:
 
-    in.virit.sb:project-parent:0.0.1
+    in.virit.sb:project-parent:0.0.3
 
 or...
 
-    in.virit.sb:viritin-project-parent:0.0.1
+    in.virit.sb:viritin-project-parent:0.0.3
 
 ... if you want to get a free viritin for the same deal.
 
 Add Spring Boot App class and a Vaadin view.
 Declare an additional Spring Boot application to the test side for development mode runs and start via main method or with `mvn spring-boot:test-run`. Deploy the built jar file as you'd expect, no need for Vaadin specific tricks.
 
-Or just go to the example directory and play with that project.
+Or just go to the `example` directory in this folder and play with that project.
 
 ## Modules in this repo:
 
