@@ -4,7 +4,7 @@
     <parent>
         <groupId>in.virit.sb</groupId>
         <!-- Use viritin-project-parent for snappy Flow-only project -->
-        <artifactId>viritin-project-parent</artifactId>
+        <artifactId>project-parent</artifactId>
         <version>0.0.3-SNAPSHOT</version>
         <relativePath/>
     </parent>

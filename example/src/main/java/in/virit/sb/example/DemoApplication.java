@@ -1,11 +1,10 @@
 package in.virit.sb.example;
 
-import com.vaadin.flow.component.page.AppShellConfigurator;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DemoApplication implements AppShellConfigurator {
+public class DemoApplication {
 
     // This method is for "production mode server" and might need a priming
     // build (mvn package) to be run directly.
