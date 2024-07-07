@@ -4,7 +4,7 @@
     <parent>
         <groupId>in.virit.sb</groupId>
         <artifactId>project-parent</artifactId>
-        <version>0.0.2-SNAPSHOT</version>
+        <version>0.0.3-SNAPSHOT</version>
         <relativePath>../project-parent</relativePath>
     </parent>
     <groupId>in.virit.sb</groupId>
@@ -67,19 +67,13 @@
             <artifactId>vaadin-spring-boot-starter</artifactId>
             <version>${vaadin.version}</version>
             <exclusions>
-                <!-- Getting an exception if not excluding this -->
+                <exclusion>
+                    <groupId>com.vaadin</groupId>
+                    <artifactId>vaadin-dev</artifactId>
+                </exclusion>
                 <exclusion>
                     <groupId>com.vaadin</groupId>
                     <artifactId>hilla</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>com.vaadin</groupId>
-                    <artifactId>hilla-dev</artifactId>
-                </exclusion>
-                <!-- This just makes things much faster to debug this kind of setup. Too bad we lose all developmen mode widgets. Add back later if it starts to behave well -->
-                <exclusion>
-                    <groupId>com.vaadin</groupId>
-                    <artifactId>copilot</artifactId>
                 </exclusion>
                 <exclusion>
                     <groupId>com.vaadin</groupId>
@@ -100,6 +94,23 @@
                     <artifactId>commons-fileupload2-jakarta</artifactId>
                 </exclusion>
                 -->
+            </exclusions>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>vaadin-dev</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.vaadin</groupId>
+                    <artifactId>hilla-dev</artifactId>
+                </exclusion>
+                <!-- This just makes things much faster to debug this kind of setup. Too bad we lose all developmen mode widgets. Add back later if it starts to behave well -->
+                <exclusion>
+                    <groupId>com.vaadin</groupId>
+                    <artifactId>copilot</artifactId>
+                </exclusion>
             </exclusions>
         </dependency>
 
