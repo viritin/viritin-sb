@@ -35,6 +35,8 @@ Declare an additional Spring Boot application to the test side for development m
 
 Or just go to the `example` directory in this folder and play with that project.
 
+*The `example-flattened` works in the same way but doesn't use custom parent pom.xml*. It still uses Spring Boot parent pom, but that can be ditched (check Spring Boot docs) as well if needed. The build file is not a cute, but the developer workflow is the same. This approach is so far only lightly tested.
+
 ## Known limitations at this point:
 
  * You can't make your Spring Boot application class(es) directly extend `AppShellConfigurator` due to assertions made at app start. To make those configs work for both dev & production, introduce a separate class for those configs, as in Example class. Probably this is a better habit anyway to keep Vaadin specific stuff separately. Not a biggie, but you'll face this if migrating existing projects...
