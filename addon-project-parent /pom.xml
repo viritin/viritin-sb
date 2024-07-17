@@ -6,7 +6,7 @@
     <name>viritin-addon-project-parent</name>
     <description>A slim parent pom for Vaadin add-on projects</description>
     <packaging>pom</packaging>
-    <version>0.0.3</version>
+    <version>0.0.4-SNAPSHOT</version>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>17</maven.compiler.release>
@@ -28,7 +28,7 @@
         <url>https://github.com/viritin/viritin-sb</url>
         <connection>scm:git:git://github.com/viritin/viritin-sb.git</connection>
         <developerConnection>scm:git:ssh://git@github.com:/viritin/viritin-sb.git</developerConnection>
-        <tag>viritin-addon-project-parent-0.0.3</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <issueManagement>
