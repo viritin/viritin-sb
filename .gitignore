@@ -7,3 +7,12 @@ sb-configs/target
 viritin-project-parent/target/
 viritin-project-parent/src/main/frontend
 /target/
+example-flattened/node_modules
+example-flattened/target
+example-flattened/src/main/frontend/generated
+addon-example/node_modules
+addon-project-parent /target
+addon-example/src/main/frontend
+addon-example/target
+example-web-serial
+addon-project-parent /src/main/frontend/generated
