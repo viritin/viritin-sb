@@ -49,15 +49,32 @@
 
     <build>
         <plugins>
-            <!-- Configure front-end build to get rid of React & React Router for smaller bundle size -->
+            <!-- Use flatten plugin to "cleanup" the published pom.xml of irrelevant
+                 build related stuff (like this parent project itself when used in an add-on project)
+             -->
             <plugin>
-                <groupId>com.vaadin</groupId>
-                <artifactId>flow-maven-plugin</artifactId>
-                <version>${flow.version}</version>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>flatten-maven-plugin</artifactId>
+                <version>1.6.0</version>
                 <configuration>
-                    <reactEnable>false</reactEnable>
-                    <forceProductionBuild>true</forceProductionBuild>
+                    <flattenMode>oss</flattenMode>
                 </configuration>
+                <executions>
+                    <execution>
+                        <id>flatten</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>flatten</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>flatten.clean</id>
+                        <phase>clean</phase>
+                        <goals>
+                            <goal>clean</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
@@ -149,6 +166,10 @@
         <profile>
             <id>release</id>
             <properties>
+                <!-- This parent project can't be flattened, but for the end artifacts using this
+                     it is nice to generate as clean pom.xml:s as possible.
+                -->
+                <flatten.flatten.skip>true</flatten.flatten.skip>
                 <altReleaseDeploymentRepository>
                     releases::https://oss.sonatype.org/service/local/staging/deploy/maven2/
                 </altReleaseDeploymentRepository>
