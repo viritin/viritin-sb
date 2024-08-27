@@ -15,8 +15,8 @@
     <version>0.0.4-SNAPSHOT</version>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <vaadin.version>24.4.4</vaadin.version>
-        <flow.version>24.4.2</flow.version>
+        <vaadin.version>24.4.10</vaadin.version>
+        <flow.version>24.4.6</flow.version>
     </properties>
     
     <organization>
@@ -91,7 +91,6 @@
     
     <build>
         <plugins>
-            
             <plugin>
                 <groupId>com.vaadin</groupId>
                 <artifactId>flow-maven-plugin</artifactId>
@@ -108,7 +107,11 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>            
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
         </plugins>
     </build>
     
