@@ -22,11 +22,11 @@ This project hacks together better project defaults and developer experience for
 
 Create a project with parent:
 
-    in.virit.sb:project-parent:0.0.3
+    in.virit.sb:project-parent:0.0.5
 
 or...
 
-    in.virit.sb:viritin-project-parent:0.0.3
+    in.virit.sb:viritin-project-parent:0.0.5
 
 ... if you want to get a free viritin for the same deal.
 
@@ -66,4 +66,6 @@ The downside is that old farts might need to learn bit new things. There is now 
  * sb-configs : Contains a bit of Spring Boot autoconfiguration to enforce dev mode is on whenever vaadin-dev module is on the classpath. This can be used separately as well, if you for example can't use the provided parent pom's
  * project-parent : A pom to inherit from, if you want a clean Vaadin project without a ton of configuration.
  * viritin-project-parent : You guessed it, this parent pom extends the previous one, but gives you a free in.virit:viritin dependency for the same price! (currently) ditches the Copilot as it quite radically slows down the startup off apps in dev mode. flow-react and React router usage are dust off to make the front-end bundle as smaller (~ same as Vaadin 24.3).
+ * addon-project-parent : A parent pom for client side extensions with similar design.
  * example : A simple app example for testing, uses project-parent
+ * example-flattened : A simple app example for testing, uses Spring Boot parent pom directly.
