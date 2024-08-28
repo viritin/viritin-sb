@@ -3,63 +3,16 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>in.virit.sb</groupId>
-        <!-- Use viritin-project-parent for snappy Flow-only project -->
         <artifactId>project-parent</artifactId>
-        <version>0.0.5-SNAPSHOT</version>
+        <version>0.0.5</version>
         <relativePath/>
     </parent>
+    <groupId>org.example</groupId>
     <artifactId>example</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
-    
-    <dependencyManagement>
-        <!--
-            This is optional, but it can be a good idea to dictate Vaadin and Spring Boot version(s) via bom in the project:
-
-             * You can upgrade Vaadin version, independently of the in.virit.sb:project-parent
-             * Without bom, some Vaadin add-ons defining version directly (in wrong way some might claim) might have "shorter path" and override them
-        -->
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
-                <version>3.3.3</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>com.vaadin</groupId>
-                <artifactId>vaadin-bom</artifactId>
-                <version>24.4.10</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-    
-    <dependencies>
-        <!-- Essential Spring & Vaadin deps coming in via parent -->
-                
-        <!-- Devtools is cool, especially if you don't have JRebel -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <scope>runtime</scope>
-            <optional>true</optional>
-        </dependency>
-        <!-- You might want to test -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        
-    </dependencies>
-    
-    <build>
-        <plugins>
-        <!-- Nothing needed here, spring-boot-maven-plugin and vaadin-maven-plugin and their configs inherited from the parent -->
-        </plugins>
-    </build>
-    
+    <!--
+    This is the minimum required to get the project running.
+    Check out the pom-withconfigs.xml for more options/examples you might have in real projects.
+    -->
 </project>
