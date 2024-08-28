@@ -1,25 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>in.virit.sb</groupId>
-    <artifactId>project-parent</artifactId>
-    <name>project-parent</name>
-    <description>A parent project (or starter in SB lingo) for Vaadin Flow + Spring Boot apps</description>
-    <packaging>pom</packaging>
-    <version>0.0.5-SNAPSHOT</version>
+    <groupId>in.virit</groupId>
+    <artifactId>spring-boot-starter-flow</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <name>Flow Spring Boot Starter</name>
+    <description>Spring Boot Starter for Vaadin Flow (only) applications. Also brings in Viritin add-on for better Flow DX.</description>
 
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.3.3</version>
-        <relativePath /> <!-- lookup parent from repository -->
-    </parent>
-
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <vaadin.version>24.4.10</vaadin.version>
-        <flow.version>24.4.6</flow.version>
-    </properties>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.vaadin</groupId>
+                <artifactId>vaadin-spring-bom</artifactId>
+                <version>24.4.10</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>vaadin-spring</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>vaadin-core</artifactId>
+            <exclusions>
+                <!-- make sure the vaadin-dev is not accidentally included in the final build -->
+                <exclusion>
+                    <groupId>com.vaadin</groupId>
+                    <artifactId>vaadin-dev</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>in.virit</groupId>
+            <artifactId>viritin</artifactId>
+            <version>2.8.23</version>
+        </dependency>
+        <dependency>
+            <!-- Tomcat & basic Spring Boot -->
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>3.3.3</version>
+        </dependency>
+    </dependencies>
 
     <organization>
         <name>Viritin</name>
@@ -48,76 +76,7 @@
             <distribution>repo</distribution>
         </license>
     </licenses>
-    
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>com.vaadin</groupId>
-                <artifactId>vaadin-bom</artifactId>
-                <version>${vaadin.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
 
-        </dependencies>
-    </dependencyManagement>
-  
-    <dependencies>
-        <dependency>
-            <groupId>com.vaadin</groupId>
-            <artifactId>vaadin-spring-boot-starter</artifactId>
-            <version>${vaadin.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>com.vaadin</groupId>
-                    <artifactId>vaadin-dev</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        
-        <dependency>
-            <groupId>com.vaadin</groupId>
-            <artifactId>vaadin-dev</artifactId>
-            <scope>test</scope>
-        </dependency>
-
-        <!-- A tooling from here kicks in to enforece dev mod if present. In an ideal situation, this logic would be in vaadin development mode. -->
-        <dependency>
-            <groupId>in.virit.sb</groupId>
-            <artifactId>sb-configs</artifactId>
-            <version>0.0.2</version>
-        </dependency>
-        
-    </dependencies>
-    
-    
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>com.vaadin</groupId>
-                <artifactId>flow-maven-plugin</artifactId>
-                <version>${flow.version}</version>
-                <!-- Configure front-end build "production bundle" when a deployment artifact is packaged. No special profiles neede. -->
-                <executions>
-                    <execution>
-                        <id>frontend</id>
-                        <!-- Not yet on compile, but before actual packaging -->
-                        <phase>prepare-package</phase>
-                        <goals>
-                            <goal>prepare-frontend</goal>
-                            <goal>build-frontend</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
-    
-    
     <profiles>
         <profile>
             <id>release</id>

@@ -13,6 +13,10 @@
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
+    <description>Example of Vaadin Flow (only) project with "cloud native setup".
+        Use this as such (if you don't want to depend on provided parent project)
+        or use it as a stub for your own parent project for Vaadin Flow apps.</description>
+
     <properties>
         <java.version>17</java.version>
         <vaadin.version>24.4.10</vaadin.version>
@@ -31,31 +35,26 @@
     </dependencyManagement>
     
     <dependencies>
+        <!-- This brings in relevant dependencies for Spring Boot and Vaadin Flow -->
         <dependency>
-            <groupId>com.vaadin</groupId>
-            <artifactId>vaadin-spring-boot-starter</artifactId>
-            <version>${vaadin.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>com.vaadin</groupId>
-                    <artifactId>vaadin-dev</artifactId>
-                </exclusion>
-            </exclusions>
+            <groupId>in.virit</groupId>
+            <artifactId>spring-boot-starter-flow</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
         </dependency>
 
+        <!-- Define the vaadin-dev to test scope -->
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-dev</artifactId>
             <scope>test</scope>
         </dependency>
-
-        <!-- Devtools is cool, especially if you don't have JRebel -->
+        <!-- Devtools is cool, especially if you don't have JRebel
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
-            <scope>runtime</scope>
-            <optional>true</optional>
+            <scope>test</scope>
         </dependency>
+        -->
         <!-- You might want to test -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
