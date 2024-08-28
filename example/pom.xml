@@ -5,21 +5,28 @@
         <groupId>in.virit.sb</groupId>
         <!-- Use viritin-project-parent for snappy Flow-only project -->
         <artifactId>project-parent</artifactId>
-        <version>0.0.4</version>
+        <version>0.0.5-SNAPSHOT</version>
         <relativePath/>
     </parent>
     <artifactId>example</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
     
-    <!-- 
-        This is optional, but it can be a good idea to dictate Vaadin version(s) via bom in the project:
-
-         * You can upgrade Vaadin version, independently of the in.virit.sb:project-parent
-         * Without bom, some Vaadin add-ons defining version directly (in wrong way some might claim) might have "shorter path" and override them
-    -->
     <dependencyManagement>
+        <!--
+            This is optional, but it can be a good idea to dictate Vaadin and Spring Boot version(s) via bom in the project:
+
+             * You can upgrade Vaadin version, independently of the in.virit.sb:project-parent
+             * Without bom, some Vaadin add-ons defining version directly (in wrong way some might claim) might have "shorter path" and override them
+        -->
         <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>3.3.3</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
             <dependency>
                 <groupId>com.vaadin</groupId>
                 <artifactId>vaadin-bom</artifactId>
