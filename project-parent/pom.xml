@@ -99,6 +99,7 @@
     <build>
         <plugins>
             <plugin>
+                <!-- Note: using flow-maven-plugin directly as the vaadin-maven-plugin causes some (obsolete) executions unknown to me... -->
                 <groupId>com.vaadin</groupId>
                 <artifactId>flow-maven-plugin</artifactId>
                 <version>${flow.version}</version>
@@ -114,6 +115,20 @@
                         </goals>
                     </execution>
                 </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.vaadin</groupId>
+                        <artifactId>vaadin-prod-bundle</artifactId>
+                        <version>${vaadin.version}</version>
+                    </dependency>
+                    <!-- Dev bundle is needed to copy package-lock file from it to the project, -->
+                    <!-- this speeds up the production bundle build -->
+                    <dependency>
+                        <groupId>com.vaadin</groupId>
+                        <artifactId>vaadin-dev-bundle</artifactId>
+                        <version>${vaadin.version}</version>
+                    </dependency>
+                </dependencies>
             </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
