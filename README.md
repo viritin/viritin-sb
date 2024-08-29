@@ -20,7 +20,13 @@ This project hacks together better project defaults and developer experience for
 
 ## How to try:
 
-Create a project with parent:
+Create a new project with an archetype (CLI or with IDE):
+
+    mvn archetype:generate -DinteractiveMode=false -DgroupId=org.example -DartifactId=my-great-project -Dversion=1.0-SNAPSHOT -DarchetypeGroupId=in.virit -DarchetypeArtifactId=viritin-vaadin-flow-spring-archetype -DarchetypeVersion=2.0
+
+Or....
+
+Create a project or modify existing to use parent:
 
     in.virit.sb:project-parent:0.0.5
 
