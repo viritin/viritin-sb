@@ -5,10 +5,11 @@ This project hacks together better project defaults and developer experience for
 ## Design goals of the project:
 
  * A Spring Boot app started from IDE or via `mvn spring-boot:test-run` should automatically end up in development mode.
- * `mvn install` creates a deployment ready production artifact. Reasoning:
+ * `mvn install` creates a deployment ready production artifact. `spring-boot:build-image` wraps in a container image. Reasoning:
    * This is what experienced Java users expect
-   * This is what "cloud native tooling" like buildpacks expect. Makes Vaadin easier to use with various "cloud deployments".
-   * No need to learn or maintain "Vaadin specialities" like the production profile currently shipped with all  starters
+   * This is what "cloud native tooling" like buildpacks and PaaS services expect. Makes Vaadin easier to use with various "cloud deployments".
+   * No need to learn or maintain "Vaadin specialities" like the production profile currently shipped with all starters
+   * *Friends don't let friends use Dockerfile.* Check out this YT video if you still don't get it: https://www.youtube.com/watch?v=am4x5DNaJgs
  * Make the pom.xml look like Vaadin is easy to take into use. Current custom profiles, plugin configurations and exclusions makes Vaadin look quite fragile.
  * Collect input and feedback for a proper implementation directly in the Vaadin core. Related Flow issue: https://github.com/vaadin/flow/issues/17737
 
