@@ -3,8 +3,8 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>in.virit.sb</groupId>
-        <artifactId>project-parent</artifactId>
-        <version>0.0.8</version>
+        <artifactId>viritin-project-parent</artifactId>
+        <version>0.0.9-SNAPSHOT</version>
         <relativePath/>
     </parent>
     <groupId>org.example</groupId>
