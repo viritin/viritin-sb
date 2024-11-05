@@ -14,9 +14,9 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
 
-        <spring.boot.version>3.3.1</spring.boot.version>
-        <vaadin.version>24.4.6</vaadin.version>
-        <flow.version>24.4.4</flow.version>
+        <spring.boot.version>3.3.5</spring.boot.version>
+        <vaadin.version>24.5.3</vaadin.version>
+        <flow.version>24.5.3</flow.version>
     </properties>
 
     <organization>
@@ -50,7 +50,7 @@
     <build>
         <plugins>
             <!-- Use flatten plugin to "cleanup" the published pom.xml of irrelevant
-                 build related stuff (like this parent project itself when used in an add-on project)
+                 build related stuff. This is optional, but a good habit, at least until Maven 4.
              -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
@@ -75,6 +75,43 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <!-- Make sure flow-build-info.json don't end up in add-on jar, only meant apps. -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <excludes>
+                        <exclude>META-INF/VAADIN/config/flow-build-info.json</exclude>
+                    </excludes>
+                    <archive>
+                        <!-- This is obsoleted configuration (10.0+), that was handy in the past for GWT
+                             compilation. I'd remove this, but "Sami" says he will optimise front-end
+                             build in the future with this info 🤓-->
+                        <index>true</index>
+                        <manifest>
+                            <addClasspath>false</addClasspath>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                        </manifest>
+                        <manifestEntries>
+                            <Vaadin-Package-Version>1</Vaadin-Package-Version>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <!-- Fixing version & activating "release" profile for those who use release plugin -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>3.1.1</version>
+                <configuration>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
+                    <!-- forward compatibility, "release-profile" will be gone soon from super pom,
+                         better define javadocs, sources, signing, etc. in own "release" profile-->
+                    <useReleaseProfile>false</useReleaseProfile>
+                    <releaseProfiles>release</releaseProfiles>
+                </configuration>
             </plugin>
         </plugins>
     </build>
@@ -101,12 +138,11 @@
         </dependencies>
     </dependencyManagement>
 
-
     <dependencies>
-
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-core</artifactId>
+            <!-- Provided scope is OKish, we can expect all apps bring in Vaadin -->
             <scope>provided</scope>
         </dependency>
 
@@ -126,11 +162,6 @@
                 <exclusion>
                     <groupId>com.vaadin</groupId>
                     <artifactId>flow-react</artifactId>
-                </exclusion>
-                <!-- Viritin upload is superior, just remove the defaul that you shouldn't touch. -->
-                <exclusion>
-                    <groupId>com.vaadin</groupId>
-                    <artifactId>vaadin-upload</artifactId>
                 </exclusion>
             </exclusions>
         </dependency>
@@ -166,57 +197,15 @@
     <profiles>
         <profile>
             <id>release</id>
-            <properties>
-                <altReleaseDeploymentRepository>
-                    releases::https://oss.sonatype.org/service/local/staging/deploy/maven2/
-                </altReleaseDeploymentRepository>
-            </properties>
             <build>
                 <plugins>
                     <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-release-plugin</artifactId>
-                        <version>3.1.0</version>
-                        <configuration>
-                            <autoVersionSubmodules>true</autoVersionSubmodules>
-                            <useReleaseProfile>false</useReleaseProfile>
-                            <releaseProfiles>release</releaseProfiles>
-                            <goals>deploy</goals>
-                        </configuration>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.codehaus.mojo</groupId>
-                        <artifactId>flatten-maven-plugin</artifactId>
-                        <version>1.6.0</version>
-                        <configuration>
-                            <flattenMode>oss</flattenMode>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <id>flatten</id>
-                                <phase>process-resources</phase>
-                                <goals>
-                                    <goal>flatten</goal>
-                                </goals>
-                            </execution>
-                            <execution>
-                                <id>flatten.clean</id>
-                                <phase>clean</phase>
-                                <goals>
-                                    <goal>clean</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.sonatype.plugins</groupId>
-                        <artifactId>nexus-staging-maven-plugin</artifactId>
-                        <version>1.7.0</version>
+                        <groupId>org.sonatype.central</groupId>
+                        <artifactId>central-publishing-maven-plugin</artifactId>
+                        <version>0.6.0</version>
                         <extensions>true</extensions>
                         <configuration>
-                            <serverId>ossrh</serverId>
-                            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                            <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                            <publishingServerId>central</publishingServerId>
                         </configuration>
                     </plugin>
                     <plugin>
@@ -235,7 +224,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-javadoc-plugin</artifactId>
-                        <version>3.7.0</version>
+                        <version>3.10.1</version>
                         <executions>
                             <execution>
                                 <id>attach-javadocs</id>
@@ -259,7 +248,7 @@
                             </execution>
                         </executions>
                         <configuration>
-                            <!-- Prevent gpg from using pinentry programs -->
+                            <!-- Prevent gpg from using pinentry programs (for CI setups) -->
                             <gpgArguments>
                                 <arg>--pinentry-mode</arg>
                                 <arg>loopback</arg>
