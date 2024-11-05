@@ -248,13 +248,6 @@
                                 </goals>
                             </execution>
                         </executions>
-                        <configuration>
-                            <!-- Prevent gpg from using pinentry programs (for CI setups) -->
-                            <gpgArguments>
-                                <arg>--pinentry-mode</arg>
-                                <arg>loopback</arg>
-                            </gpgArguments>
-                        </configuration>
                     </plugin>
                 </plugins>
             </build>
