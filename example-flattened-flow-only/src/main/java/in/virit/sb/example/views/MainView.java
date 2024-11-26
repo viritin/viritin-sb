@@ -26,7 +26,7 @@ import com.vaadin.flow.router.Route;
 public class MainView extends VerticalLayout {
     
     public MainView() {
-        add("It works!?!");
+        add("It works, Flow only!?!");
     }
     
 }

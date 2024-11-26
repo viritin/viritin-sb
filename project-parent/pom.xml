@@ -15,9 +15,9 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <spring-boot.run.main-class>${start-class}</spring-boot.run.main-class>
-        <vaadin.version>24.5.2</vaadin.version>
-        <flow.version>24.5.2</flow.version>
-        <spring-boot.version>3.3.5</spring-boot.version>
+        <vaadin.version>24.5.5</vaadin.version>
+        <flow.version>24.5.5</flow.version>
+        <spring-boot.version>3.4.0</spring-boot.version>
     </properties>
 
     <organization>
