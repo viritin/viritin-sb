@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>in.virit</groupId>
     <artifactId>spring-boot-starter-flow</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.1</version>
     <name>Flow Spring Boot Starter</name>
     <description>Spring Boot Starter for Vaadin Flow (only) applications. Also brings in Viritin add-on for better Flow DX.</description>
 
@@ -60,7 +60,7 @@
         <url>https://github.com/viritin/viritin-sb</url>
         <connection>scm:git:git://github.com/viritin/viritin-sb.git</connection>
         <developerConnection>scm:git:ssh://git@github.com:/viritin/viritin-sb.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>spring-boot-starter-flow-1.0.1</tag>
     </scm>
 
     <issueManagement>
