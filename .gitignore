@@ -15,7 +15,7 @@ addon-project-parent /target
 addon-example/src/main/frontend
 addon-example/target
 example-web-serial
-addon-project-parent /src/main/frontend/generated
+addon-project-parent/src/main/frontend/generated
 viritin-project-parent/node_modules
 /example-flattened-flow-only/target/
 /example-flattened-flow-only/node_modules/
