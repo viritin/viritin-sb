@@ -39,7 +39,7 @@
         <dependency>
             <groupId>in.virit</groupId>
             <artifactId>spring-boot-starter-flow</artifactId>
-            <version>1.0.1-SNAPSHOT</version>
+            <version>1.0.1</version>
         </dependency>
 
         <!-- Define the vaadin-dev to test scope -->
