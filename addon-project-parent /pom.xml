@@ -14,9 +14,9 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
 
-        <spring.boot.version>3.3.5</spring.boot.version>
-        <vaadin.version>24.5.3</vaadin.version>
-        <flow.version>24.5.3</flow.version>
+        <spring.boot.version>3.4.0</spring.boot.version>
+        <vaadin.version>24.6.0</vaadin.version>
+        <flow.version>24.6.0</flow.version>
     </properties>
 
     <organization>

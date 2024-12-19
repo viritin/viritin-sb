@@ -3,8 +3,13 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>in.virit.sb</groupId>
+        <!--
+             "project-parent", without viritin prefix, contains "full vaadin flow"
+             with copilot et al, but it is slower to start up in development mode
+             and doesn't come with flow-viritin
+        -->
         <artifactId>viritin-project-parent</artifactId>
-        <version>0.0.10</version>
+        <version>0.0.11-SNAPSHOT</version>
         <relativePath/>
     </parent>
     <groupId>org.example</groupId>

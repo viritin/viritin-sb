@@ -15,8 +15,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <spring-boot.run.main-class>${start-class}</spring-boot.run.main-class>
-        <vaadin.version>24.5.5</vaadin.version>
-        <flow.version>24.5.5</flow.version>
+        <vaadin.version>24.6.0</vaadin.version>
+        <flow.version>24.6.0</flow.version>
         <spring-boot.version>3.4.0</spring-boot.version>
     </properties>
 
@@ -71,7 +71,6 @@
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-spring-boot-starter</artifactId>
-            <version>${vaadin.version}</version>
             <exclusions>
                 <exclusion>
                     <groupId>com.vaadin</groupId>
@@ -83,7 +82,6 @@
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-dev</artifactId>
-            <version>${vaadin.version}</version>
             <scope>test</scope>
         </dependency>
 
