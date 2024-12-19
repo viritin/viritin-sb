@@ -4,7 +4,7 @@
     <parent>
         <groupId>in.virit.sb</groupId>
         <artifactId>project-parent</artifactId>
-        <version>0.0.11-SNAPSHOT</version>
+        <version>0.0.11</version>
         <relativePath>../project-parent</relativePath>
     </parent>
     <groupId>in.virit.sb</groupId>
@@ -124,9 +124,6 @@
     <profiles>
         <profile>
             <id>release</id>
-            <properties>
-                <altReleaseDeploymentRepository>releases::https://oss.sonatype.org/service/local/staging/deploy/maven2/</altReleaseDeploymentRepository>
-            </properties>
             <build>
                 <plugins>
                     <plugin>
