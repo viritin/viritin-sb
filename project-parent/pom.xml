@@ -179,9 +179,6 @@
     <profiles>
         <profile>
             <id>release</id>
-            <properties>
-                <altReleaseDeploymentRepository>releases::https://oss.sonatype.org/service/local/staging/deploy/maven2/</altReleaseDeploymentRepository>
-            </properties>
             <build>
                 <plugins>
                     <plugin>
