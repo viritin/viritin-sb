@@ -4,12 +4,12 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.4.0</version>
+        <version>3.4.3</version>
         <relativePath /> <!-- lookup parent from repository -->
     </parent>
 
     <groupId>org.example</groupId>
-    <artifactId>example</artifactId>
+    <artifactId>flattened-flow-only</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
@@ -19,7 +19,7 @@
 
     <properties>
         <java.version>17</java.version>
-        <vaadin.version>24.6.0</vaadin.version>
+        <vaadin.version>24.7.0</vaadin.version>
     </properties>
 
     <dependencyManagement>
@@ -40,6 +40,12 @@
             <groupId>in.virit</groupId>
             <artifactId>spring-boot-starter-flow</artifactId>
             <version>1.0.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>in.virit</groupId>
+            <artifactId>viritin</artifactId>
+            <version>2.13.1</version>
         </dependency>
 
         <!-- Define the vaadin-dev to test scope -->
