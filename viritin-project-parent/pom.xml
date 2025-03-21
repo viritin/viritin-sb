@@ -78,6 +78,13 @@
                     <groupId>com.vaadin</groupId>
                     <artifactId>flow-react</artifactId>
                 </exclusion>
+                <!-- Due to bad reasons, Vaadin depends on Spring Data these days, 
+                    nothing against Spring Data too much is too much (to support outdated IDE version) ...
+                https://github.com/vaadin/flow-components/pull/7214 -->
+                <exclusion>
+                    <groupId>org.springframework.data</groupId>
+                    <artifactId>spring-data-commons</artifactId>
+                </exclusion>
                 <!-- Viritin upload is superior, just remove the defaul that you shouldn't touch. -->
                 <exclusion>
                     <groupId>com.vaadin</groupId>
