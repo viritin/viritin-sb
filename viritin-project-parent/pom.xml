@@ -65,7 +65,6 @@
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-spring-boot-starter</artifactId>
-            <version>${vaadin.version}</version> <!-- Should not be needed, workaround for some new invalid central validation -->
             <exclusions>
                 <exclusion>
                     <groupId>com.vaadin</groupId>
@@ -107,7 +106,6 @@
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-dev</artifactId>
-            <version>${vaadin.version}</version> <!-- Should not be needed, workaround for some new invalid central validation -->
             <scope>test</scope>
             <exclusions>
                 <exclusion>
