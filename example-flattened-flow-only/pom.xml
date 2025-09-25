@@ -91,7 +91,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <!-- The new flag in SB 3.5.7+ to make other all optional dependencies behave as they should -->
-                    <!-- TODO check if this is still needed in future versions 🤷‍♂️ -->
+                    <!-- Only needed for Spring Boot 3.5.x projects, will be the default in 4 -->
                     <includeOptional>false</includeOptional>
                 </configuration>
             </plugin>
