@@ -4,7 +4,7 @@
     <parent>
         <groupId>in.virit.sb</groupId>
         <artifactId>project-parent</artifactId>
-        <version>0.0.15</version>
+        <version>0.0.16-SNAPSHOT</version>
         <relativePath>../project-parent</relativePath>
     </parent>
     <groupId>in.virit.sb</groupId>
@@ -106,7 +106,8 @@
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-dev</artifactId>
-            <scope>test</scope>
+            <scope>runtime</scope>
+            <optional>true</optional>
             <exclusions>
                 <exclusion>
                     <groupId>com.vaadin</groupId>

@@ -4,7 +4,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.4.0</version>
+        <version>3.5.7-SNAPSHOT</version>
         <relativePath /> <!-- lookup parent from repository -->
     </parent>
 
@@ -15,7 +15,7 @@
 
     <properties>
         <java.version>17</java.version>
-        <vaadin.version>24.6.0</vaadin.version>
+        <vaadin.version>24.9.0</vaadin.version>
     </properties>
 
     <dependencyManagement>
@@ -45,7 +45,8 @@
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-dev</artifactId>
-            <scope>test</scope>
+            <scope>runtime</scope>
+            <optional>true</optional>
         </dependency>
 
         <!-- Devtools is cool, especially if you don't have JRebel -->
