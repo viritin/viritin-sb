@@ -1,5 +1,7 @@
 # Tooling for optimal Vaadin + Spring Boot experience for Java develoer
 
+**Update: Vaadin 25 will pretty much obsolete this project!💪 Only the addon-project-parent might be relevant until official [addon-starters are made to utilise Spring Boot for testing setup](https://github.com/vaadin/addon-template/issues/466).**
+
 This project hacks together better project defaults and developer experience for Java developers than what we currently provide out of the box with our official Vaadin starters. Aim is to make it easier and faster to use for a developer who don't yet know the quirks of Vaadin.
 
 ## Design goals of the project:
