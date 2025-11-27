@@ -21,3 +21,4 @@ viritin-project-parent/node_modules
 /example-flattened-flow-only/node_modules/
 example-flattened-flow-only/src/main/frontend/generated
 flow-spring-boot-starter/target
+/addon-project-parent/target/
