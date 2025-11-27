@@ -18,7 +18,7 @@ Also configures some common plugins and dependencies for Vaadin Flow add-ons.
 
 Easieast way for new projects is to use archetype to generate project base (CLI or with IDE using these maven coordinates):
 
-    mvn archetype:generate -DinteractiveMode=false -DgroupId=io.github.youraccount -DartifactId=my-great-addon -Dversion=1.0.0-SNAPSHOT -DarchetypeGroupId=in.virit -DarchetypeArtifactId=viritin-vaadin-addon-archetype -DarchetypeVersion=2.0.2
+    mvn archetype:generate -DinteractiveMode=false -DgroupId=io.github.youraccount -DartifactId=my-great-addon -Dversion=1.0.0-SNAPSHOT -DarchetypeGroupId=in.virit -DarchetypeArtifactId=viritin-vaadin-addon-archetype -DarchetypeVersion=3.0.0
 
 The archetype generates a simple add-on stub and examples how to automatically test the add-on.
 
