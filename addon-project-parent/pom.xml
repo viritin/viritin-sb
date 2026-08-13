@@ -12,9 +12,9 @@
         <java.version>21</java.version>
         <maven.compiler.release>${java.version}</maven.compiler.release>
 
-        <spring.boot.version>4.0.0</spring.boot.version>
-        <vaadin.version>25.0.0-beta7</vaadin.version>
-        <flow.version>25.0.0-beta7</flow.version>
+        <spring.boot.version>4.1.0</spring.boot.version>
+        <vaadin.version>25.2.6</vaadin.version>
+        <flow.version>25.2.6</flow.version>
     </properties>
 
     <organization>
@@ -86,7 +86,7 @@
                     <archive>
                         <!-- This is obsoleted configuration (10.0+), that was handy in the past for GWT
                              compilation. I'd remove this, but "Sami" says he will optimise front-end
-                             build in the future with this info 🤓-->
+                             build in the future with this info-->
                         <index>true</index>
                         <manifest>
                             <addClasspath>false</addClasspath>
@@ -102,7 +102,7 @@
                 <!-- Fixing version & activating "release" profile for those who use release plugin -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-release-plugin</artifactId>
-                <version>3.1.1</version>
+                <version>3.3.1</version>
                 <configuration>
                     <autoVersionSubmodules>true</autoVersionSubmodules>
                     <!-- forward compatibility, "release-profile" will be gone soon from super pom,
@@ -210,7 +210,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-source-plugin</artifactId>
-                        <version>3.3.1</version>
+                        <version>3.4.0</version>
                         <executions>
                             <execution>
                                 <id>attach-sources</id>
