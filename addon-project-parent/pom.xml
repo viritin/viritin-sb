@@ -13,8 +13,8 @@
         <maven.compiler.release>${java.version}</maven.compiler.release>
 
         <spring.boot.version>4.1.0</spring.boot.version>
-        <vaadin.version>25.2.6</vaadin.version>
-        <flow.version>25.2.6</flow.version>
+        <vaadin.version>25.3-SNAPSHOT</vaadin.version>
+        <flow.version>25.3-SNAPSHOT</flow.version>
     </properties>
 
     <organization>
@@ -111,6 +111,20 @@
                     <releaseProfiles>release</releaseProfiles>
                 </configuration>
             </plugin>
+            <!-- Makes the add-on behave correctly in Quarkus dev mode -->
+            <plugin>
+                <groupId>io.smallrye</groupId>
+                <artifactId>jandex-maven-plugin</artifactId>
+                <version>3.5.2</version>
+                <executions>
+                    <execution>
+                        <id>make-index</id>
+                        <goals>
+                            <goal>jandex</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 
@@ -148,20 +162,6 @@
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-spring-boot-starter</artifactId>
             <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>com.vaadin</groupId>
-                    <artifactId>vaadin-dev</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>com.vaadin</groupId>
-                    <artifactId>hilla</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>com.vaadin</groupId>
-                    <artifactId>flow-react</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -178,17 +178,6 @@
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-dev</artifactId>
             <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>com.vaadin</groupId>
-                    <artifactId>hilla-dev</artifactId>
-                </exclusion>
-                <!-- This just makes things much faster to debug this kind of setup. Too bad we lose all developmen mode widgets. Add back later if it starts to behave well -->
-                <exclusion>
-                    <groupId>com.vaadin</groupId>
-                    <artifactId>copilot</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
     </dependencies>
 
